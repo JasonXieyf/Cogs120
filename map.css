@@ -1,0 +1,26 @@
+.textBlock{
+  color: rgb(237, 237, 237);
+  font-weight: bold;
+  position: absolute;
+  left: 1000px;
+  top: 280px;
+}
+
+#Up{
+  position: absolute;
+  left:1000px;
+  top: 470px;
+}
+
+#maPicture1{
+  transform: scale(0.7);
+  position: absolute;
+  left: 120px;
+
+}
+
+#navBar{
+  position: absolute;
+  left: 988px;
+  top: 181px;
+}
