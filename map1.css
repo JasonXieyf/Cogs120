@@ -7,7 +7,7 @@
 }
 
 #Down{
-  transform: scale(-1, 1);
+  transform: scale(1, -1);
   position: absolute;
   left:1000px;
   top: 470px;
@@ -24,4 +24,11 @@
   position: absolute;
   left: 988px;
   top: 181px;
+}
+
+
+#Mention{
+  position: absolute;
+  left: 500px;
+  top: 350px;
 }

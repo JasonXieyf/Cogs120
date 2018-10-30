@@ -24,3 +24,10 @@
   left: 988px;
   top: 181px;
 }
+
+#Death {
+  color: rgb(251, 5, 5);
+  position: absolute;
+  left: 600px;
+  top: 300px;
+}
