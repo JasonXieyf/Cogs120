@@ -9,9 +9,13 @@ h1{
   color: #ffffff;
 }
 
+.back{
+  width:10%;
+}
+
 .search-box{
   position: absolute;
-  top:30%;
+  top:35%;
   left:50%;
   transform: translate(-50%, -50%);
   background: #2f3640;
