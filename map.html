@@ -11,18 +11,73 @@
   <link rel="stylesheet" href="map.css">
 </head>
 
-<body style="background: rgb(54, 54, 54)">
-  <h1 style="text-align:center; color:rgb(238, 238, 238)" id="title1">Core Map Page</h1>
-  <img src="2.jpg" alt="maPicture" id="maPicture1">
-  <svg width="100px" height="500px" id="navBar">
-    <rect width="70px" height="447.3px" style="fill:rgb(10, 10, 10)">
-  </svg>
-  <div class="textBlock">
-    <p>floor:</p>
-    <p style="position:absolute; left:15px">1</p>
-  </div>
-  <a href="map1.html"><img src="tri.png" alt="tri" id="Up"></a>
-  <img src="dead.png" alt="dead" id="Death">
-  <a href="roomcreation.html"><img src="back.png" alt="back" id="goBack"></a>
+<body>
+	<canvas id="canvas">
+		Your browser does not support the canvas element.
+	</canvas>
+	<a href="index.html"><img src="back2.png" alt="back" id="GoBack"></a>
+	<img src="tri.png" alt="tri" id="NextFloor">
+	<img src="tri2.png" alt="tri2" id="PrevFloor">
+	<script>
+		//adjust canvas size to fit the screen
+		var canvas = document.getElementById("canvas");
+		var ctx = canvas.getContext("2d");
+		var mapName = "hereford";
+		var floor = 1;
+		canvas.width = 800;
+		canvas.height = 700;
+		var mapImg = new Image();
+		loadMap();
+		mapImg.addEventListener("load", drawMap, false);
+		document.addEventListener("click", markPos, false);
+		document.getElementById("NextFloor").onclick = NextFloor;
+		document.getElementById("PrevFloor").onclick = PrevFloor;
+
+		function loadMap()
+		{
+			mapImg.src = "r6maps/" + mapName + "/" + floor + ".jpg";
+		}
+
+		function drawMap()
+		{
+			ctx.clearRect(0, 0, canvas.width, canvas.height);
+			ctx.drawImage(mapImg,0,0,800,650);
+		}
+
+		function markPos(e)
+		{
+			drawMap();
+			var posX = e.clientX;
+			var posY = e.clientY;
+			ctx.beginPath();
+			ctx.arc(posX-300,posY,3,0,2*Math.PI);
+			ctx.fillStyle="#ffff00";
+			ctx.fill();
+		}
+
+		function NextFloor()
+		{
+			floor++;
+			if(floor > 3)
+			{
+				floor = 3;
+			}
+			loadMap();
+			drawMap();
+
+		}
+
+		function PrevFloor()
+		{
+			floor--;
+			if(floor < 1)
+			{
+				floor = 1;
+			}
+			loadMap();
+			drawMap();
+		}
+	</script>
 </body>
 </html>
+
