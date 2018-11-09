@@ -65,6 +65,47 @@ h2{
   text-decoration: none;
 }
 
+.login-btn:hover{
+  transition-duration: 0.5s;
+  width:2px;
+  background-color: #fff;
+  color:rgb(0, 0, 0);
+
+}
+
+.Register-btn{
+  color: rgba(149, 149, 149, 0.93);
+  margin-left: 155px;
+  text-decoration: none;
+  font-weight: lighter;
+}
+
+.Register-btn:hover{
+  color: rgba(237, 237, 237, 0.93);
+  margin-left: 155px;
+  text-decoration: none;
+  font-weight: lighter;
+}
+
+.vistor-btn{
+  width: 2px;
+  border: 1px solid #fff;
+  border-radius: 1px;
+  padding: 7px 20px;
+  font-size: 14px;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+}
+
+.vistor-btn:hover{
+  transition-duration: 0.5s;
+  width:2px;
+  background-color: #fff;
+  color:rgb(0, 0, 0);
+
+}
+
 .logo{
   margin-left: 35px;
   margin-top: 20px;
