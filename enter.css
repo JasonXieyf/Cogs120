@@ -36,6 +36,23 @@ h2{
 .search-box:hover > .search-btn{
   background: white;
 }
+.enter-box{
+
+  position: absolute;
+  top:35%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  background: #2f3640;
+  width: 200px;
+  height: 40px;
+  border-radius: 40px;
+  padding: 10px;
+}
+
+.enter-box:hover > .enter-txt{
+  width:240px;
+  padding: 0 6px;
+}
 
 .submit:hover > .submit2{
   background: #2f3640;
@@ -54,12 +71,15 @@ h2{
 }
 
 
+
 .searchbutton{
   width: 50%;
   height: 50%;
 }
 
 .search-txt{
+  width:240px;
+  padding: 0 6px;
   border: none;
   background: none;
   outline:none;
@@ -72,6 +92,18 @@ h2{
   width:0;
 }
 
+.enter-txt{
+  border: none;
+  background: none;
+  outline:none;
+  float:left;
+  padding: 0;
+  color: white;
+  font-size:16px;
+  transition: 0.4s;
+  line-height: 40px;
+  width:0;
+}
 .room{
   text-align: center;
   margin-top:50%;
@@ -81,6 +113,7 @@ h2{
   border: solid;
   border-color: #e84118;
 }
+
 
 .submit2{
   border:none;
