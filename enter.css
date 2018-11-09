@@ -6,7 +6,7 @@ body{
 h1{
   text-align: center;
   padding-top: 10px;
-  color: #2f3640;
+  color: #ffffff;
 }
 
 .search-box{
@@ -65,7 +65,7 @@ h1{
 
 .room{
   text-align: center;
-  margin-top:40%;
+  margin-top:50%;
 }
 
 .roomitem{
