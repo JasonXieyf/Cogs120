@@ -49,10 +49,7 @@ h2{
   padding: 10px;
 }
 
-.enter-box:hover > .enter-txt{
-  width:240px;
-  padding: 0 6px;
-}
+
 
 .submit:hover > .submit2{
   background: #2f3640;
@@ -102,7 +99,7 @@ h2{
   font-size:16px;
   transition: 0.4s;
   line-height: 40px;
-  width:0;
+  width:240px;
 }
 .room{
   text-align: center;
