@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" style="margin: 0;padding: 0;font-family: Open Sans, sans-serif;font-weight: 400;">
+
+<head>
+  <meta name="keywords" content="TacPro, R6, rainbowsix">
+  <meta name="author" content="Sizhao Li, Ming Xie, Yifei Xie">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TacPro Test</title>
+  <link rel="stylesheet" href="enter.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script>
+$(document).ready(function(){
+    $(".searchbutton").click(function(){
+        $("room2").hide();
+    });
+});
+</script>
+
+</head>
+<body style="max-width: 375px; min-width: 375px; height: 667px;margin: 100px auto;border:solid;">
+	<h1>Search the room:</h1>
+	<div class="search-box">
+		<input class="search-txt" type="text" name="searchenter" placeholder="Enter room's name">
+		<a class="search-btn" href="enterroom2.html">
+			<img src="chaxun.png" alt="searchbutton" class="searchbutton">
+		</a>
+	</div>
+
+	<div class="room">
+    <a class="roomselect" href="enterroom2.html">
+		    <img src="room2.jpg" alt="room" class="roomitem">
+    </a>
+	</div>
+
+  <div class="submit">
+    <button class="submit2">Enter</button>
+  </div>
+
+</body>
