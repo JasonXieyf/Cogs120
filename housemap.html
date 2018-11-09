@@ -15,14 +15,14 @@
 	<canvas id="canvas">
 		Your browser does not support the canvas element.
 	</canvas>
-	<a href="index.html"><img src="back2.png" alt="back" id="GoBack"></a>
+	<a href="home.html"><img src="back2.png" alt="back" id="GoBack"></a>
 	<img src="tri.png" alt="tri" id="NextFloor">
 	<img src="tri2.png" alt="tri2" id="PrevFloor">
 	<script>
 		//adjust canvas size to fit the screen
 		var canvas = document.getElementById("canvas");
 		var ctx = canvas.getContext("2d");
-		var mapName = "hereford";
+		var mapName = "house";
 		var floor = 1;
 		canvas.width = 800;
 		canvas.height = 700;
@@ -58,9 +58,9 @@
 		function NextFloor()
 		{
 			floor++;
-			if(floor > 3)
+			if(floor > 2)
 			{
-				floor = 3;
+				floor = 2;
 			}
 			loadMap();
 			drawMap();

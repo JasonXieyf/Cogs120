@@ -8,29 +8,61 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TacPro Test</title>
-  <link rel="stylesheet" href="./css/index.css">
+  <link rel="stylesheet" type="text/css" href="./css/login.css">
+  <link rel="stylesheet" type="text/css" href="./css/animate.css">
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+
 </head>
 
-<body style="width: 375px; height: 667px;margin: 100px auto;border:none;background:#161616;">
-  <div class="nav">
-    <h1>Home</h1>
-    <a href="account.html" class="home">
-    <h2>Account</h2>
-    </a>
+
+<body>
+  <div id="imgbox" class="bgdiv">
+    <img src="./image/login-background.jpg">
+    <img src="./image/csgo.jpg">
+    <img src="./image/tarkov.jpg">
   </div>
-  <div style="">
-    <image src="logo.png" style=" margin-left: -40px; margin-top:40px;">
-    <a href="createroom.html">
-      <image src="create.png" style="margin-left: 55px; margin-top:20px;">
-    </a>
-    <a href="enterroom.html">
-      <image src="enter.png"  style="margin-left: 55px; margin-top:20px;">
-    </a>
+	<h1 class="animated 1 fadeInUp delay-0.5s">TacPro</h1>
+  <h2 class="animated 1 fadeInUp delay-0.7s">For all the E-Sports FPS gamer</h2>
+  <form class="login-1">
+    <div class="animated 1 flipInX delay-0.3s">
+      <input class="login-box" type="text" name="username" placeholder="Email">
+    </div>
+    <div class="animated 1 flipInX delay-0.3s" style="margin-top:-50px">
+      <input class="login-box" type="text" name="password" placeholder="Password">
+    </div>
+  </form>
+  <div class="login-2 animated 1 flipInX delay-0.3s" style="margin-top: 20px; margin-left: 38px;">
+    <a class="login-btn" href="home.html">Login</a>
+    <a class="Register-btn" href="#">Register</a>
   </div>
-
-  <a href="map.html"><image src="current.png" style="float:right";></a>
-
-
+  <div class="logo animated 1 flipInX delay-0.3s">
+    <a href="https://store.steampowered.com/app/359550/Tom_Clancys_Rainbow_Six_Siege/"><img style="width:30px; height:auto; max-height:500px; max-width:350px; min-width:30px; overflow:hidden;" src="./image/steam.png" alt="steam"></a>
+    <a href="https://discordapp.com/invite/rainbow6"><img style="width:30px; height:auto; max-height:500px; max-width:350px; min-width:30px; overflow:hidden;" src="./image/discord.png" alt="discord"></a>
+    <a href="https://twitter.com/Rainbow6Game"><img style="width:30px; height:auto; max-height:500px; max-width:350px; min-width:30px; overflow:hidden;" src="./image/twitter.png" alt="twitter"></a>
+  </div>
+  <div class="login-3" style="margin-left:1000px; margin-top:-470px">
+    <a class="vistor-btn" href="index.html">Visitor</a>
+  </div>
 
 
 </body>
+
+<script>
+  $(document).ready(function(){
+    $("#imgbox img").fadeOut(0).eq(0).fadeIn(0);
+      var i = 0;
+        setInterval(function(){
+          if($("#imgbox img").length > (i+1)){
+            $("#imgbox img").eq(i).fadeOut(3000).next("img").fadeIn(2000);
+            i++;
+          }
+          else{
+            $("#imgbox img").eq(i).fadeOut(3000).siblings("img").eq(0).fadeIn(500);
+            i = 0;
+          }
+        },3000);
+  });
+</script>
