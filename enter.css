@@ -20,8 +20,8 @@ h2{
 
 .search-box{
   position: absolute;
-  top:35%;
-  left:50%;
+  margin-top: 50px;
+  margin-left: 180px;
   transform: translate(-50%, -50%);
   background: #2f3640;
   height: 40px;
@@ -29,13 +29,7 @@ h2{
   padding: 10px;
 }
 
-.search-box:hover > .search-txt{
-  width:240px;
-  padding: 0 6px;
-}
-.search-box:hover > .search-btn{
-  background: white;
-}
+
 .enter-box{
 
   position: absolute;
@@ -60,7 +54,7 @@ h2{
   width:40px;
   height:40px;
   border-radius: 50%;
-  background:#2f3640;
+  background:#ffffff;
   display:flex;
   justify-content: center;
   align-items: center;
@@ -86,7 +80,7 @@ h2{
   font-size:16px;
   transition: 0.4s;
   line-height: 40px;
-  width:0;
+  width:240px;
 }
 
 .enter-txt{
@@ -103,7 +97,7 @@ h2{
 }
 .room{
   text-align: center;
-  margin-top:50%;
+  margin-top:150px;
 }
 
 .roomitem{
