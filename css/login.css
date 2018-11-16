@@ -25,6 +25,14 @@ h2{
   color: #ffffff;
 }
 
+p{
+  font-family:  Lucida Grande;
+  font-weight: lighter;
+  text-align: center;
+  font-size: 15px;
+  color: #ffffff;
+}
+
 
 .bgdiv img{
   position:absolute;
@@ -110,3 +118,5 @@ h2{
   margin-left: 35px;
   margin-top: 20px;
 }
+
+.error, .valid{display:none;}

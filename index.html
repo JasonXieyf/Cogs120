@@ -26,16 +26,20 @@
   </div>
 	<h1 class="animated 1 fadeInUp delay-0.5s">TacPro</h1>
   <h2 class="animated 1 fadeInUp delay-0.7s">For all the E-Sports FPS gamer</h2>
+
+  <p class="valid">Valid. Please wait a moment.</p>
+  <p class="error">Error. Please enter correct Username &amp; password.</p>
+
   <form class="login-1">
     <div class="animated 1 flipInX delay-0.3s">
-      <input class="login-box" type="text" name="username" placeholder="Email">
+      <input class="login-box" type="text" id="username" name="username" placeholder="Email">
     </div>
     <div class="animated 1 flipInX delay-0.3s" style="margin-top:-50px">
-      <input class="login-box" type="text" name="password" placeholder="Password">
+      <input class="login-box" type="password" id="password" name="password" placeholder="Password">
     </div>
   </form>
   <div class="login-2 animated 1 flipInX delay-0.3s" style="margin-top: 20px; margin-left: 38px;">
-    <a class="login-btn" href="home.html">Login</a>
+    <a class="login-btn" id="submit" href="home.html">Login</a>
     <a class="Register-btn" href="#">Register</a>
   </div>
   <div class="logo animated 1 flipInX delay-0.3s">
@@ -65,5 +69,21 @@
             i = 0;
           }
         },3000);
+
+        $('#submit').click(function() {
+
+            event.preventDefault();
+
+           var ValidEmail = $('#username').val() === 'tacpro';
+    var ValidPassword = $('#password').val() === '1234';
+
+            if (ValidEmail === true && ValidPassword === true) {
+                $('.valid').css('display', 'block');
+                window.location = "home.html";
+            }
+            else {
+                $('.error').css('display', 'block');
+            }
+        });
   });
 </script>
