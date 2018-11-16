@@ -1,0 +1,37 @@
+<head>
+  <meta name="keywords" content="TacPro, R6, rainbowsix">
+  <meta name="author" content="Sizhao Li, Ming Xie, Yifei Xie">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TacPro Test</title>
+  <link rel="stylesheet" href="section.css">
+</head>
+
+<body>
+  <canvas id="canvas">
+    Your browser does not support the canvas element.
+  </canvas>
+  <a href="core.html"><img src="back2.png" alt="back" id="GoBack"></a>
+  <script>
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext("2d");
+    canvas.width = 800;
+    canvas.height = 700;
+    //load the section pic
+    var secImg = new Image();
+    var currSec = window.localStorage.getItem("currSection");
+    var mapName = window.localStorage.getItem("currMap");
+    secImg.src = "r6maps/" + mapName + "/sections/" + currSec + ".jpg";
+    secImg.addEventListener("load", drawImg, false);
+
+    function drawImg()
+    {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.drawImage(secImg,0,0,800,650);
+    }
+    /*ctx.beginPath();
+    ctx.arc(300,300,10,0,2*Math.PI);
+    ctx.fillStyle="#ffff00";
+    ctx.fill();*/
+  </script>
+</body>

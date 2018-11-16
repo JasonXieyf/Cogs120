@@ -16,22 +16,32 @@
 		Your browser does not support the canvas element.
 	</canvas>
 	<a href="home.html"><img src="back2.png" alt="back" id="GoBack"></a>
+  <img src="selectSection.png" alt="back" id="SelectSection">
 	<img src="tri.png" alt="tri" id="NextFloor">
 	<img src="tri2.png" alt="tri2" id="PrevFloor">
+  <!--p style="color: #ffffff;" id="debugP">TESTTEST</p>-->
 	<script>
 		//adjust canvas size to fit the screen
 		var canvas = document.getElementById("canvas");
 		var ctx = canvas.getContext("2d");
 		var mapName = window.localStorage.getItem("currMap");
 		var floor = 1;
+    var qbool = 0;
 		canvas.width = 800;
 		canvas.height = 700;
 		var mapImg = new Image();
 		loadMap();
 		mapImg.addEventListener("load", drawMap, false);
-		document.addEventListener("click", markPos, false);
+		document.addEventListener("click", mouseClick, false);
+    document.getElementById("SelectSection").onclick = HighlightQ;
 		document.getElementById("NextFloor").onclick = NextFloor;
 		document.getElementById("PrevFloor").onclick = PrevFloor;
+
+    //hardcoded section coordinate
+    var section1 = [500,100,610,340];
+    var section2 = [400,340,640,460];
+    var section3 = [820,170,920,300];
+    var section4 = [740,350,970,470];
 
 		function loadMap()
 		{
@@ -43,6 +53,80 @@
 			ctx.clearRect(0, 0, canvas.width, canvas.height);
 			ctx.drawImage(mapImg,0,0,800,650);
 		}
+
+    function mouseClick(e)
+    {
+      if(qbool == 1)
+      {
+        selectSection(e);
+      }
+      else
+      {
+        markPos(e);
+      }
+    }
+
+    function selectSection(e)
+    {
+      if(floor != 1 || mapName != "house")
+      {
+        return;
+      }
+      var posX = e.clientX;
+      var posY = e.clientY;
+
+      //var debugM = posX + " / " + posY;
+      //var currSec;
+      //hardcoded for testing
+      //to be changed in 2d array and database
+      if(posX > section1[0] && posY > section1[1] && posX < section1[2] && posY < section1[3])
+      {
+        //enter section 1
+        window.localStorage.setItem("currSection","1");
+        window.location.href = "sectiondetail.html";
+        //currSec = "temp1";
+      }
+      else if(posX > section2[0] && posY > section2[1] && posX < section2[2] && posY < section2[3])
+      {
+        //enter section 2
+        window.localStorage.setItem("currSection","2");
+        window.location.href = "sectiondetail.html";
+        //currSec = "temp2";
+      }
+      else if(posX > section3[0] && posY > section3[1] && posX < section3[2] && posY < section3[3])
+      {
+        //enter section 3
+        window.localStorage.setItem("currSection","3");
+        window.location.href = "sectiondetail.html";
+        //currSec = "temp3";
+      }
+      else if(posX > section4[0] && posY > section4[1] && posX < section4[2] && posY < section4[3])
+      {
+        //enter section 4
+        window.localStorage.setItem("currSection","4");
+        window.location.href = "sectiondetail.html";
+        //currSec = "temp4";
+      }
+      else
+      {
+        //selectingSection = 0;
+      }
+      //debugP.innerHTML = debugM + currSec;
+    }
+
+    function HighlightQ()
+    {
+      if(qbool == 0)
+      {
+        SelectSection.src = "selectSection1.png";
+        qbool = 1;
+      }
+      else
+      {
+        SelectSection.src = "selectSection.png";
+        qbool = 0;
+      }
+    }
 
 		function markPos(e)
 		{

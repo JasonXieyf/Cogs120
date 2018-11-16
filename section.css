@@ -1,0 +1,20 @@
+canvas
+{
+  position: absolute;
+  left: 300px;
+  top: 0px;
+  padding: 0px;
+  margin: 0px;
+}
+
+#GoBack{
+  transform: scale(0.4);
+  position: absolute;
+  left: 270px;
+  top: -50px;
+}
+
+body
+{
+  background-color: #000000;
+}
