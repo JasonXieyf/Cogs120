@@ -1,6 +1,7 @@
 body{
   margin:0;
   padding: 0;
+  background-image:url("./image/login-background.jpg");
 }
 
 h1{
@@ -27,6 +28,7 @@ h2{
   height: 40px;
   border-radius: 40px;
   padding: 10px;
+  opacity:0.6;
 }
 
 
