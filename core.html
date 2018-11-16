@@ -22,7 +22,7 @@
 		//adjust canvas size to fit the screen
 		var canvas = document.getElementById("canvas");
 		var ctx = canvas.getContext("2d");
-		var mapName = "house";
+		var mapName = window.localStorage.getItem("currMap");
 		var floor = 1;
 		canvas.width = 800;
 		canvas.height = 700;
@@ -58,9 +58,9 @@
 		function NextFloor()
 		{
 			floor++;
-			if(floor > 2)
+			if(floor > 3)
 			{
-				floor = 2;
+				floor = 3;
 			}
 			loadMap();
 			drawMap();
@@ -80,4 +80,3 @@
 	</script>
 </body>
 </html>
-
