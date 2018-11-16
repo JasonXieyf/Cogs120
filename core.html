@@ -30,6 +30,8 @@
 		canvas.width = 800;
 		canvas.height = 700;
 		var mapImg = new Image();
+    var icon = new Image();
+    icon.src = "notice.png";
 		loadMap();
 		mapImg.addEventListener("load", drawMap, false);
 		document.addEventListener("click", mouseClick, false);
@@ -133,10 +135,11 @@
 			drawMap();
 			var posX = e.clientX;
 			var posY = e.clientY;
-			ctx.beginPath();
+			/*ctx.beginPath();
 			ctx.arc(posX-300,posY,3,0,2*Math.PI);
 			ctx.fillStyle="#ffff00";
-			ctx.fill();
+			ctx.fill();*/
+      ctx.drawImage(icon,posX-300,posY,20,20);
 		}
 
 		function NextFloor()
