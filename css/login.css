@@ -119,4 +119,10 @@ p{
   margin-top: 20px;
 }
 
-.error, .valid{display:none;}
+.error{
+  font-family: Lucida Grande;
+  display: none;
+  color: rgb(219, 3, 3);
+}
+
+.valid{display:none;}
