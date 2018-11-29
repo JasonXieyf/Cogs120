@@ -19,14 +19,24 @@
   <img src="selectSection.png" alt="back" id="SelectSection">
 	<img src="tri.png" alt="tri" id="NextFloor">
 	<img src="tri2.png" alt="tri2" id="PrevFloor">
+  <p id="SectionName"></p>
   <!--p style="color: #ffffff;" id="debugP">TESTTEST</p>-->
 	<script>
+
+    //js data
+    var sectionData = {"numSections":4,
+                      "sectionList":[[500,100,610,340],
+                                    [400,340,640,460],
+                                    [820,170,920,300],
+                                    [740,350,970,470]],
+                      "sectionName":["s1","s2","s3","s4"]};
 		//adjust canvas size to fit the screen
 		var canvas = document.getElementById("canvas");
 		var ctx = canvas.getContext("2d");
 		var mapName = window.localStorage.getItem("currMap");
 		var floor = 1;
-    var qbool = 0;
+    window.localStorage.setItem("currFloor", floor.toString())
+    var checkSection = 0;
 		canvas.width = 800;
 		canvas.height = 700;
 		var mapImg = new Image();
@@ -35,15 +45,11 @@
 		loadMap();
 		mapImg.addEventListener("load", drawMap, false);
 		document.addEventListener("click", mouseClick, false);
-    document.getElementById("SelectSection").onclick = HighlightQ;
-		document.getElementById("NextFloor").onclick = NextFloor;
-		document.getElementById("PrevFloor").onclick = PrevFloor;
+    document.getElementById("SelectSection").onclick = selectMode;
+		document.getElementById("NextFloor").onclick = nextFloor;
+		document.getElementById("PrevFloor").onclick = prevFloor;
+    var selectedSection;
 
-    //hardcoded section coordinate
-    var section1 = [500,100,610,340];
-    var section2 = [400,340,640,460];
-    var section3 = [820,170,920,300];
-    var section4 = [740,350,970,470];
 
 		function loadMap()
 		{
@@ -58,109 +64,94 @@
 
     function mouseClick(e)
     {
-      if(qbool == 1)
+      var posX = e.clientX;
+      var posY = e.clientY;
+      selectedSection = -1;
+      var numSections = sectionData.numSections;
+      for(var i = 0; i < numSections; i++)
       {
-        selectSection(e);
+        if(posX > sectionData.sectionList[i][0] && posY > sectionData.sectionList[i][1] && posX < sectionData.sectionList[i][2] && posY < sectionData.sectionList[i][3])
+        {
+          window.localStorage.setItem("currSection", i.toString());
+          selectedSection = i;
+        }
+      }
+      if(checkSection == 1)
+      {
+        selectSection();
       }
       else
       {
-        markPos(e);
+        markPos(posX, posY);
       }
     }
 
-    function selectSection(e)
+    function selectSection()
     {
-      if(floor != 1 || mapName != "house")
+      /*if(floor != 1 || mapName != "house")
+      {
+        return;
+      }*/
+      if(selectedSection == -1)
       {
         return;
       }
-      var posX = e.clientX;
-      var posY = e.clientY;
-
-      //var debugM = posX + " / " + posY;
-      //var currSec;
-      //hardcoded for testing
-      //to be changed in 2d array and database
-      if(posX > section1[0] && posY > section1[1] && posX < section1[2] && posY < section1[3])
-      {
-        //enter section 1
-        window.localStorage.setItem("currSection","1");
-        window.location.href = "sectiondetail.html";
-        //currSec = "temp1";
-      }
-      else if(posX > section2[0] && posY > section2[1] && posX < section2[2] && posY < section2[3])
-      {
-        //enter section 2
-        window.localStorage.setItem("currSection","2");
-        window.location.href = "sectiondetail.html";
-        //currSec = "temp2";
-      }
-      else if(posX > section3[0] && posY > section3[1] && posX < section3[2] && posY < section3[3])
-      {
-        //enter section 3
-        window.localStorage.setItem("currSection","3");
-        window.location.href = "sectiondetail.html";
-        //currSec = "temp3";
-      }
-      else if(posX > section4[0] && posY > section4[1] && posX < section4[2] && posY < section4[3])
-      {
-        //enter section 4
-        window.localStorage.setItem("currSection","4");
-        window.location.href = "sectiondetail.html";
-        //currSec = "temp4";
-      }
-      else
-      {
-        //selectingSection = 0;
-      }
-      //debugP.innerHTML = debugM + currSec;
+      window.location.href = "sectiondetail.html";
     }
 
-    function HighlightQ()
+    function selectMode()
     {
-      if(qbool == 0)
+      if(checkSection == 0)
       {
         SelectSection.src = "selectSection1.png";
-        qbool = 1;
+        checkSection = 1;
       }
       else
       {
         SelectSection.src = "selectSection.png";
-        qbool = 0;
+        checkSection = 0;
       }
     }
 
-		function markPos(e)
+		function markPos(posX, posY)
 		{
 			drawMap();
-			var posX = e.clientX;
-			var posY = e.clientY;
+      //the commended code is for drawing circle
 			/*ctx.beginPath();
 			ctx.arc(posX-300,posY,3,0,2*Math.PI);
 			ctx.fillStyle="#ffff00";
 			ctx.fill();*/
+      if(selectedSection == -1)
+      {
+        SectionName.innerHTML = "";
+      }
+      else
+      {
+        SectionName.innerHTML = sectionData.sectionName[selectedSection];
+      }
       ctx.drawImage(icon,posX-300,posY,20,20);
 		}
 
-		function NextFloor()
+		function nextFloor()
 		{
 			floor++;
-			if(floor > 3)
+			if(floor > 2)
 			{
-				floor = 3;
+				floor = 2;
 			}
+      window.localStorage.setItem("currFloor", floor.toString())
 			loadMap();
 			drawMap();
-
 		}
 
-		function PrevFloor()
+		function prevFloor()
 		{
 			floor--;
 			if(floor < 1)
 			{
 				floor = 1;
 			}
+      window.localStorage.setItem("currFloor", floor.toString())
 			loadMap();
 			drawMap();
 		}

@@ -20,8 +20,9 @@
     //load the section pic
     var secImg = new Image();
     var currSec = window.localStorage.getItem("currSection");
+    var currFloor = window.localStorage.getItem("currFloor");
     var mapName = window.localStorage.getItem("currMap");
-    secImg.src = "r6maps/" + mapName + "/sections/" + currSec + ".jpg";
+    secImg.src = "r6maps/" + mapName + "/" + currFloor + "/" + currSec + ".jpg";
     secImg.addEventListener("load", drawImg, false);
 
     function drawImg()

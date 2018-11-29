@@ -26,6 +26,15 @@
   top: 300px;
 }
 
+#SectionName
+{
+  position: absolute;
+  left: 500px;
+  color: #ffffff;
+  font-size: 20px;
+  border: 1px solid #ffffff;
+}
+
 canvas
 {
   position: absolute;
