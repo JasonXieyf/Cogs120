@@ -1,44 +1,45 @@
 #SelectSection{
   /*transform: scale(0.4);*/
   position: absolute;
-  left: 350px;
-  top: 500px;
+  left: 10%;
+  top: 85%;
 }
 
 #GoBack{
   transform: scale(0.4);
   position: absolute;
-  left: 270px;
-  top: -50px;
+  left: 10%;
 }
 
 #NextFloor
 {
   position: absolute;
-  left: 1020px;
-  top: 200px;
+  right: 10%;
+  top: 45%;
 }
 
 #PrevFloor
 {
   position: absolute;
-  left: 1020px;
-  top: 300px;
+  right: 10%;
+  top: 55%;
 }
 
 #SectionName
 {
   position: absolute;
-  left: 500px;
+  left: 30%;
+  top: 3%;
   color: #ffffff;
   font-size: 20px;
-  border: 1px solid #ffffff;
 }
 
 canvas
 {
-  position: absolute;
-  left: 300px;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0px;
   top: 0px;
   padding: 0px;
   margin: 0px;

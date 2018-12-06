@@ -19,26 +19,27 @@
   <img src="selectSection.png" alt="back" id="SelectSection">
 	<img src="tri.png" alt="tri" id="NextFloor">
 	<img src="tri2.png" alt="tri2" id="PrevFloor">
-  <p id="SectionName"></p>
+  <p id="SectionName">TTTTTTTTTTTTTTTTTTT</p>
   <!--p style="color: #ffffff;" id="debugP">TESTTEST</p>-->
 	<script>
 
     //js data
     var sectionData = {"numSections":4,
-                      "sectionList":[[500,100,610,340],
-                                    [400,340,640,460],
-                                    [820,170,920,300],
-                                    [740,350,970,470]],
+                      "sectionList":[[190,90,350,310],
+                                    [150,315,350,435],
+                                    [520,165,625,275],
+                                    [345,315,670,430]],
                       "sectionName":["s1","s2","s3","s4"]};
 		//adjust canvas size to fit the screen
 		var canvas = document.getElementById("canvas");
 		var ctx = canvas.getContext("2d");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    ctx.imageSmoothingEnabled = false;
 		var mapName = window.localStorage.getItem("currMap");
 		var floor = 1;
     window.localStorage.setItem("currFloor", floor.toString())
     var checkSection = 0;
-		canvas.width = 800;
-		canvas.height = 700;
 		var mapImg = new Image();
     var icon = new Image();
     icon.src = "notice.png";
@@ -59,13 +60,18 @@
 		function drawMap()
 		{
 			ctx.clearRect(0, 0, canvas.width, canvas.height);
-			ctx.drawImage(mapImg,0,0,800,650);
+			ctx.drawImage(mapImg,0,0,canvas.width, canvas.height);
 		}
 
     function mouseClick(e)
     {
       var posX = e.clientX;
       var posY = e.clientY;
+      var posXRaw = posX;
+      var posYRaw = posY;
+      posX = posX * 800 / window.innerWidth;
+      posY = posY * 600 / window.innerHeight;
+      //SectionName.innerHTML = posX.toString() + "///" + posY.toString();
       selectedSection = -1;
       var numSections = sectionData.numSections;
       for(var i = 0; i < numSections; i++)
@@ -82,7 +88,7 @@
       }
       else
       {
-        markPos(posX, posY);
+        markPos(posXRaw, posYRaw);
       }
     }
 
@@ -121,15 +127,18 @@
 			ctx.arc(posX-300,posY,3,0,2*Math.PI);
 			ctx.fillStyle="#ffff00";
 			ctx.fill();*/
+      posX = posX * canvas.width / window.innerWidth;
+      posY = posY * canvas.height / window.innerHeight;
+      //SectionName.innerHTML = posX.toString() + " " + posY.toString();
       if(selectedSection == -1)
       {
-        SectionName.innerHTML = "";
+        SectionName.innerHTML = "Unkown";
       }
       else
       {
         SectionName.innerHTML = sectionData.sectionName[selectedSection];
       }
-      ctx.drawImage(icon,posX-300,posY,20,20);
+      ctx.drawImage(icon,posX,posY,20,20);
 		}
 
 		function nextFloor()
